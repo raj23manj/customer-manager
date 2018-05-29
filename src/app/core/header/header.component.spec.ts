@@ -1,17 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {DebugElement} from "@angular/core";
 import {By} from "@angular/platform-browser";
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from './../../auth/auth.service';
 
 import { HeaderComponent } from './header.component';
 
-describe('HeaderComponent', () => {
+describe('HeaderComponent When Not Logged In', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let el: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      imports: [ RouterTestingModule ],
+      providers: [ AuthService ]
     })
     .compileComponents();
   }));
@@ -31,12 +35,12 @@ describe('HeaderComponent', () => {
     expect(el.nativeElement.textContent.trim()).toBe('Customer Manager');
   });
 
-  it('should have created Customers link', () => {
+  xit('should have created Customers link', () => {
     el = fixture.debugElement.query(By.css('nav .collapse .customers'));
     expect(el.nativeElement.textContent.trim()).toBe('Customers');
   });
 
-  it('should have created Orders link', () => {
+  xit('should have created Orders link', () => {
     el = fixture.debugElement.query(By.css('nav .collapse .orders'));
     expect(el.nativeElement.textContent.trim()).toBe('Orders');
   });
