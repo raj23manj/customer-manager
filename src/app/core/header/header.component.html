@@ -18,18 +18,18 @@
       </li>
     </ul>
 
-    <div class="col-md-4 float-right">
+    <div class="col-md-4 float-right auth-links">
       <ul class="navbar-nav mr-auto float-right">
         <ng-template [ngIf]="isAuthenticated()">
-          <li class="nav-item">
+          <li class="nav-item sign-out">
             <a class="nav-link" (click)="signOut()">Sign Out</a>
           </li>
         </ng-template>
         <ng-template [ngIf]="!isAuthenticated()">
-          <li class="nav-item">
+          <li class="nav-item sign-up">
             <a class="nav-link" routerLink="/signup">Sign Up!</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item sign-in">
             <a class="nav-link" routerLink="/">Sign In</a>
           </li>
         </ng-template>
