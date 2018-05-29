@@ -1,9 +1,11 @@
 import * as firebase from 'firebase';
+import { UserToken } from './../../shared/app.interfaces';
 
 export class AuthService {
 
   private tokenKey:string = 'customer_manager_token';
-  private currentUserToken:Object = {token: ''};
+  // private currentUserToken:Object = {token: ''};
+  private currentUserToken: UserToken = {token: ''};
 
   signupUser(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
