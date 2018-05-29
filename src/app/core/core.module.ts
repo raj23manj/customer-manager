@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
 // App Services
+import { AuthService } from './../auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { HomeComponent } from './home/home.component';
     FooterComponent
   ],
   providers: [
-
+    AuthService
   ]
 })
 
