@@ -1,4 +1,4 @@
-import { TestBed, async, whenStable, fakeAsync, tick, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import {DebugElement} from "@angular/core";
 import {By} from "@angular/platform-browser";
 import { RouterTestingModule } from '@angular/router/testing';
@@ -25,7 +25,6 @@ describe('HeaderComponent When Not Logged In', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     authService = TestBed.get(AuthService);
-    //fixture.detectChanges();
   });
 
   it('should create', () => {
