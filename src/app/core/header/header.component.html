@@ -5,12 +5,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item customers">
-        <a class="nav-link" href="#">Customers</a>
-      </li>
-      <li class="nav-item orders">
-        <a class="nav-link" href="#">Orders</a>
-      </li>
+      <ng-template [ngIf]="isAuthenticated()">
+        <li class="nav-item customers">
+          <a class="nav-link" href="#">Customers</a>
+        </li>
+        <li class="nav-item orders">
+          <a class="nav-link" href="#">Orders</a>
+        </li>
+      </ng-template>
       <li class="nav-item about">
         <a class="nav-link" href="#">About</a>
       </li>
@@ -18,12 +20,19 @@
 
     <div class="col-md-4 float-right">
       <ul class="navbar-nav mr-auto float-right">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sign Up!</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
-        </li>
+        <ng-template [ngIf]="isAuthenticated()">
+          <li class="nav-item">
+            <a class="nav-link" (click)="signOut()">Sign Out</a>
+          </li>
+        </ng-template>
+        <ng-template [ngIf]="!isAuthenticated()">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup">Sign Up!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Sign In</a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

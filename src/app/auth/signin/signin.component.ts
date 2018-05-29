@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +10,9 @@ import { AuthService } from './../auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router
+             ) { }
 
   ngOnInit() {
   }
@@ -17,8 +20,8 @@ export class SigninComponent implements OnInit {
   onSignIn(form: NgForm) {
     this.authService.signinUser(form.value.email, form.value.password)
                     .then((token: string) => {
-                    //  this.router.navigate(['/']);
-                      console.log('token', token)
+                      this.authService.storeToken(token);
+                      this.router.navigate(['/home']);
                     })
                     .catch(error => {
                       console.log('error', error)

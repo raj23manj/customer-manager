@@ -1,7 +1,9 @@
 import * as firebase from 'firebase';
 
 export class AuthService {
-  //token: string;
+
+  private tokenKey:string = 'customer_manager_token';
+  private currentUserToken:Object = {token: ''};
 
   signupUser(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -14,8 +16,29 @@ export class AuthService {
                   return this.getToken();
                 })
                .catch(error => {
+                  console.log('Authentication Rejected');
                   return Promise.reject(error);
                 });
+  }
+
+  storeToken(token: string) {
+    //this.currentUserToken = {token: token};
+    localStorage.setItem(this.tokenKey, JSON.stringify({ token: token}));
+  }
+
+  getStoredToken() {
+    this.currentUserToken = JSON.parse(localStorage.getItem(this.tokenKey));
+    return this.currentUserToken;
+  }
+
+  isAuthenticated() {
+    // (this.currentUserToken.token as string)
+    return (<string>this.getStoredToken().token).length > 0
+  }
+
+  logout(){
+    firebase.auth().signOut();
+    this.storeToken('');
   }
 
   private getToken() {

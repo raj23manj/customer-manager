@@ -1,5 +1,6 @@
 // Default Angular Modules
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // App Related imports
 import { AppRoutingModule } from '../app-routing.module';
@@ -17,7 +18,8 @@ import { AuthService } from './../auth/auth.service';
     HomeComponent
   ],
   imports: [
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   exports: [
     HeaderComponent,
