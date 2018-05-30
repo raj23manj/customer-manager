@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import { UserToken } from './../../shared/app.interfaces';
+import { UserToken } from './../shared/app.interfaces';
 
 export class AuthService {
 

@@ -1,0 +1,12 @@
+#simple, #disabled,
+#fancy {
+  margin-right: 0.25em;
+  border-color: #18BC9C;
+  color: #18BC9C;
+  background-color: #fff;
+  &.active {
+    color: #fff;
+    background-color: #18BC9C;
+    border-color: #18BC9C;
+  }
+}
