@@ -154,6 +154,37 @@ describe('SigninComponent', () => {
       expect(form.valid).toBe(true);
     }));
 
+    // it('should call the onSignIn method after vaild email and password', fakeAsync(() => {
+    //   fixture.detectChanges();
+    //   tick();
+    //
+    //   spyOn(component, 'onSignIn');
+    //
+    //   let inputP = el.query(By.css('#password'));
+    //   let inputElementP = inputP.nativeElement;
+    //   inputElementP.value = '123456';
+    //
+    //   let inputE = el.query(By.css('#email'));
+    //   let inputElementE = inputE.nativeElement;
+    //   inputElementE.value = 'demo@gmail.com';
+    //
+    //   inputElementE.dispatchEvent(new Event('input'));
+    //   inputElementP.dispatchEvent(new Event('input'));
+    //
+    //   fixture.detectChanges();
+    //   tick();
+    //
+    //   let inputBtn = el.query(By.css('.btn.btn-primary'));
+    //   let inputElementBtn = inputBtn.nativeElement;
+    //   inputElementBtn.dispatchEvent(new Event('click'));
+    //
+    //   fixture.detectChanges();
+    //   tick();
+    //
+    //   expect(component.onSignIn).toHaveBeenCalled();
+    //
+    // }));
+
   });
 
 });
