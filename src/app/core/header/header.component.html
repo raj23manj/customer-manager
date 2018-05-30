@@ -1,35 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Customer Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <a class="navbar-brand" >Customer Manager</a>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <ng-template [ngIf]="isAuthenticated()">
-        <li class="nav-item customers">
-          <a class="nav-link" href="#">Customers</a>
+        <li class="nav-item customers" routerLinkActive="active">
+          <a class="nav-link" routerLink="/home">Home</a>
         </li>
-        <li class="nav-item orders">
-          <a class="nav-link" href="#">Orders</a>
+        <li class="nav-item customers" routerLinkActive="active">
+          <a class="nav-link" >Customers</a>
+        </li>
+        <li class="nav-item orders" routerLinkActive="active">
+          <a class="nav-link" >Orders</a>
         </li>
       </ng-template>
-      <li class="nav-item about">
-        <a class="nav-link" href="#">About</a>
-      </li>
     </ul>
 
     <div class="col-md-4 float-right auth-links">
       <ul class="navbar-nav mr-auto float-right">
+        <li class="nav-item about" routerLinkActive="active">
+          <a class="nav-link" >About</a>
+        </li>
         <ng-template [ngIf]="isAuthenticated()">
           <li class="nav-item sign-out">
             <a class="nav-link" (click)="signOut()">Sign Out</a>
           </li>
         </ng-template>
         <ng-template [ngIf]="!isAuthenticated()">
-          <li class="nav-item sign-up">
+          <li class="nav-item sign-up" routerLinkActive="active">
             <a class="nav-link" routerLink="/signup">Sign Up!</a>
           </li>
-          <li class="nav-item sign-in">
+          <li class="nav-item sign-in" routerLinkActive="active">
             <a class="nav-link" routerLink="/">Sign In</a>
           </li>
         </ng-template>
