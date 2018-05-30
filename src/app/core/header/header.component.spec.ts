@@ -1,6 +1,6 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import {DebugElement} from "@angular/core";
-import {By} from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from './../../auth/auth.service';
 
