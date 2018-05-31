@@ -19,4 +19,12 @@
       text-decoration: none !important;
     }
   }
+
+  .custom-new-customer-btn {
+    border: 0px;
+    color: #18BC9C;
+    &:hover {
+      color: #007bff;
+    }
+  }
 }

@@ -10,6 +10,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { NgbdModalOptions } from './../shared/modal/modal.component';
 
 // App Services
 import { AuthService } from './../auth/auth.service';
@@ -18,7 +19,8 @@ import { AuthService } from './../auth/auth.service';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NgbdModalOptions
   ],
   imports: [
     AppRoutingModule,
