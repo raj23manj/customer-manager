@@ -1,12 +1,22 @@
-#simple, #disabled,
-#fancy {
-  margin-right: 0.25em;
-  border-color: #18BC9C;
-  color: #18BC9C;
-  background-color: #fff;
-  &.active {
-    color: #fff;
-    background-color: #18BC9C;
+.home-component {
+  // https://stackoverflow.com/questions/36527605/how-to-style-child-components-from-parent-components-css-file?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+  #card-view, #list-view,
+  #map-view {
+    margin-right: 0.25em;
     border-color: #18BC9C;
+    color: #18BC9C;
+    background-color: #fff;
+    &.active {
+      color: #fff;
+      background-color: #18BC9C;
+      border-color: #18BC9C;
+    }
+  }
+
+  .new-customer {
+    &:hover {
+      color: #18BC9C;
+      text-decoration: none !important;
+    }
   }
 }
