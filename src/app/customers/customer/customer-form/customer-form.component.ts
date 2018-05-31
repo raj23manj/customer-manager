@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
@@ -10,11 +10,17 @@ export class CustomerFormComponent implements OnInit {
 
   customerForm: FormGroup;
   @Input() isEditing: boolean = false;
+  @Output() formValidity = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
     this.initForm();
+    this.customerForm.statusChanges.subscribe(
+      (value) => {
+        this.formValidity.emit(value)
+      }
+    );
   }
 
   submitCustomer() {

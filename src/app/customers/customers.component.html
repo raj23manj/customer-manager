@@ -11,7 +11,8 @@
         <ngbd-modal modalTitle="Create New User" customClass="custom-new-customer-btn">
 
           <div body>
-            <app-customer-form></app-customer-form>
+            <app-customer-form (formValidity)="setToDisable($event)">
+            </app-customer-form>
           </div>
 
           <h6 button>

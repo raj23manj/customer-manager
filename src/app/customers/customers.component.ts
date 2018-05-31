@@ -9,6 +9,8 @@ import { CustomerFormComponent } from './customer/customer-form/customer-form.co
 export class CustomersComponent implements OnInit {
 
   @ViewChild(CustomerFormComponent) child: CustomerFormComponent;
+  btnDisable: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -20,7 +22,11 @@ export class CustomersComponent implements OnInit {
   }
 
   isDisable() {
-    return true;
+    return this.btnDisable;
+  }
+
+  setToDisable(value: string) {
+    this.btnDisable = !(value === "VALID");
   }
 
 }
