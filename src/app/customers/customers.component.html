@@ -11,7 +11,7 @@
         <ngbd-modal modalTitle="Create New User" customClass="custom-new-customer-btn">
 
           <div body>
-            need to pass component
+            <app-customer-form></app-customer-form>
           </div>
 
           <h6 button>
@@ -19,6 +19,14 @@
               <i class="fa fa-plus"></i> New Customer
             </a>
           </h6>
+
+          <button type="button"
+                  class="btn btn-light"
+                  (click)="addNew()"
+                  [disabled]="isDisable()"
+                  customButton>
+            Add
+          </button>
 
         </ngbd-modal>
       </div>

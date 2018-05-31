@@ -9,6 +9,7 @@
     <ng-content select="[body]"></ng-content>
   </div>
   <div class="modal-footer">
+    <ng-content select="[customButton]"></ng-content>
     <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
   </div>
 </ng-template>
@@ -17,6 +18,3 @@
 <button [class]=customClass (click)="open(content, 'lg')">
   <ng-content select="[button]"></ng-content>
 </button>
-
-
-<!-- <ng-content select="[button]" [method]="open(content, 'lg')"></ng-content> -->

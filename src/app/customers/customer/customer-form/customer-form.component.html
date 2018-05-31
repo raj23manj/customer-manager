@@ -1,0 +1,83 @@
+<div class="container">
+  <form [formGroup]="customerForm" (ngSubmit)="submitCustomer()">
+
+    <div class="form-group col-md-12">
+      <label for="firstName">First Name</label>
+      <input type="text"
+             [ngClass]="customerForm.get('firstName').valid ? 'valid-border' : 'invalid-border'"
+             id="firstName"
+             formControlName="firstName"
+             class="form-control">
+      <div class="alert alert-danger col-md-12"
+           *ngIf="!customerForm.get('firstName').valid && customerForm.get('firstName').touched">
+        Please enter a First Name!
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="lastName">Last Name</label>
+      <input type="text"
+             id="lastName"
+             [ngClass]="customerForm.get('lastName').valid ? 'valid-border' : 'invalid-border'"
+             formControlName="lastName"
+             class="form-control">
+      <div class="alert alert-danger col-md-12"
+           *ngIf="!customerForm.get('lastName').valid && customerForm.get('lastName').touched">
+        Please enter a Last Name!
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="address">Address</label>
+      <input type="text"
+             id="address"
+             [ngClass]="customerForm.get('address').valid ? 'valid-border' : 'invalid-border'"
+             formControlName="address"
+             class="form-control">
+      <div class="alert alert-danger col-md-12"
+           *ngIf="!customerForm.get('address').valid && customerForm.get('address').touched">
+        Please enter a Address!
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="city">City</label>
+      <input type="text"
+             id="city"
+             [ngClass]="customerForm.get('city').valid ? 'valid-border' : 'invalid-border'"
+             formControlName="city"
+             class="form-control">
+      <div class="alert alert-danger col-md-12"
+           *ngIf="!customerForm.get('city').valid && customerForm.get('city').touched">
+        Please enter a City!
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="latitude">Latitude</label>
+      <input type="text"
+             id="latitude"
+             [ngClass]="customerForm.get('latitude').valid ? 'valid-border' : 'invalid-border'"
+             formControlName="latitude"
+             class="form-control">
+      <div class="alert alert-danger col-md-12"
+           *ngIf="!customerForm.get('latitude').valid && customerForm.get('latitude').touched">
+        Please enter a Latitude!
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="longitude">Longitude</label>
+      <input type="text"
+             id="longitude"
+             [ngClass]="customerForm.get('longitude').valid ? 'valid-border' : 'invalid-border'"
+             formControlName="longitude"
+             class="form-control">
+      <div class="alert alert-danger col-md-12"
+           *ngIf="!customerForm.get('longitude').valid && customerForm.get('longitude').touched">
+        Please enter a Longitude!
+      </div>
+    </div>
+
+  </form>
+</div>
