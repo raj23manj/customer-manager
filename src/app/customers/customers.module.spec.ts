@@ -7,7 +7,7 @@ describe('CustomersModule', () => {
     customersModule = new CustomersModule();
   });
 
-  xit('should create an instance', () => {
+  it('should create an instance', () => {
     expect(customersModule).toBeTruthy();
   });
 });
