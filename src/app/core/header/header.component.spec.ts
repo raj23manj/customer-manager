@@ -78,6 +78,11 @@ describe('HeaderComponent When Not Logged In', () => {
       expect(el.nativeElement.textContent.trim()).toBe('Orders');
     });
 
+    it('should have created Home link', () => {
+      el = fixture.debugElement.query(By.css('nav .collapse .home'));
+      expect(el.nativeElement.textContent.trim()).toBe('Home');
+    });
+
     it('should have Sign Out link', () => {
       el = fixture.debugElement.query(By.css('nav div.float-right .sign-out'));
       expect(el.nativeElement.textContent.trim()).toBe('Sign Out');

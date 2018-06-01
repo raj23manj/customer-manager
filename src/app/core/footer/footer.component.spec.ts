@@ -26,6 +26,6 @@ describe('FooterComponent', () => {
   });
 
   it('should have text Customer Manager', () => {
-    expect(el.nativeElement.textContent.trim()).toBe('Customer Manager');
+    expect(el.nativeElement.textContent.trim()).toBe('Customer Manager: Footer Content');
   });
 });
