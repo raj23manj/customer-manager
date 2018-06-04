@@ -5,6 +5,12 @@ import { By } from "@angular/platform-browser";
 
 
 import { CustomerFormComponent } from './customer-form.component';
+import { CustomerService } from './../customer.service';
+
+//https://kirjai.com/testing-angular-services-with-dependencies/
+class CustomerServiceStub {
+
+}
 
 describe('CustomerFormComponent', () => {
   let component: CustomerFormComponent;
@@ -14,7 +20,10 @@ describe('CustomerFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CustomerFormComponent ],
-      imports: [FormsModule, ReactiveFormsModule]
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [
+        { provide: CustomerService, useClass: CustomerServiceStub }
+      ]
     })
     .compileComponents();
   }));
@@ -41,8 +50,8 @@ describe('CustomerFormComponent', () => {
     component.customerForm.controls['lastName'].setValue('test');
     component.customerForm.controls['address'].setValue('test');
     component.customerForm.controls['city'].setValue('test');
-    component.customerForm.controls['latitude'].setValue('test');
-    component.customerForm.controls['longitude'].setValue('test');
+    component.customerForm.controls['latitude'].setValue(23);
+    component.customerForm.controls['longitude'].setValue(23);
 
     expect(component.customerForm.valid).toBeTruthy();
   });
