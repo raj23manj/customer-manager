@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 
@@ -12,7 +12,7 @@ export class RestService {
 
   }
 
-  putRequest(payload: any, type: string) {
+  postRequest(payload: any, type: string) {
     const req = new HttpRequest('POST',
                                 'https://customer-manager-7a910.firebaseio.com/' + type,
                                 payload,

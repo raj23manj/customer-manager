@@ -9,6 +9,6 @@ export class CustomerService {
              ) {}
 
   addCustomer(customer: Customer) {
-    return this.restService.putRequest(customer, 'customer.json');
+    return this.restService.postRequest(customer, 'customer.json');
   }
 }
