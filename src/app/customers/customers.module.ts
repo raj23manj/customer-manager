@@ -8,6 +8,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { NgbdModalOptions } from './../shared/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
+import { CustomerService } from './customer/customer.service';
 
 @NgModule({
   imports: [
@@ -21,6 +22,9 @@ import { CustomerFormComponent } from './customer/customer-form/customer-form.co
     CustomerComponent,
     NgbdModalOptions,
     CustomerFormComponent
+  ],
+  providers: [
+    CustomerService
   ]
 })
 export class CustomersModule { }

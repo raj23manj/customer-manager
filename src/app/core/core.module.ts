@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 
 // App Services
 import { AuthService } from './../auth/auth.service';
+import { RestService } from './../shared/rest.services';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthService } from './../auth/auth.service';
     FooterComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    RestService
   ]
 })
 

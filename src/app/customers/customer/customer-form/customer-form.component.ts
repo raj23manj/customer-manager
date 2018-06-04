@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { CustomerService } from './../customer.service';
 
 @Component({
   selector: 'app-customer-form',
@@ -12,7 +13,7 @@ export class CustomerFormComponent implements OnInit {
   @Input() isEditing: boolean = false;
   @Output() formValidity = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
     this.initForm();
@@ -25,7 +26,11 @@ export class CustomerFormComponent implements OnInit {
 
   submitCustomer() {
     console.log(this.customerForm.value)
-    this.customerForm.reset();
+    this.customerService.addCustomer(this.customerForm.value)
+                        .subscribe(response => {
+                          console.log("response:", response);
+                          this.customerForm.reset();
+                        });
   }
 
   private initForm() {
@@ -45,8 +50,8 @@ export class CustomerFormComponent implements OnInit {
       'lastName': new FormControl(lastName, Validators.required),
       'address': new FormControl(address, Validators.required),
       'city': new FormControl(city, Validators.required),
-      'latitude': new FormControl(latitude, Validators.required),
-      'longitude': new FormControl(longitude, Validators.required)
+      'latitude': new FormControl(latitude, [Validators.required, Validators.pattern("^-?[0-9]\\d*(\\.\\d+)?$")]),
+      'longitude': new FormControl(longitude, [Validators.required, Validators.pattern("^-?[0-9]\\d*(\\.\\d+)?$")])
     });
   }
 
