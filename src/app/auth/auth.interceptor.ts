@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
 
+//https://juristr.com/blog/2017/08/intercept-http-requests-in-angular/
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
