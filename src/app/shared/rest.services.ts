@@ -13,14 +13,11 @@ export class RestService {
   }
 
   putRequest(payload: any, type: string) {
-    const token = this.authService.getStoredToken();
-
-    const req = new HttpRequest('PUT',
+    const req = new HttpRequest('POST',
                                 'https://customer-manager-7a910.firebaseio.com/' + type,
                                 payload,
                                 {
-                                  reportProgress: true,
-                                  params: new HttpParams().set('auth', token.token)
+                                  reportProgress: true
                                 }
                               );
     return this.httpClient.request(req);
