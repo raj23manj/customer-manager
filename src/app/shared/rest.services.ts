@@ -20,7 +20,7 @@ export class RestService {
                                 payload,
                                 {
                                   reportProgress: true,
-                                  params: new HttpParams().set('auth', <string>token.token)
+                                  params: new HttpParams().set('auth', token.token)
                                 }
                               );
     return this.httpClient.request(req);

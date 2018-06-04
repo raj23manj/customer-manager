@@ -1,6 +1,7 @@
 import * as firebase from 'firebase';
 import { UserToken } from './../shared/app.interfaces';
 
+// https://medium.com/@amcdnl/authentication-in-angular-jwt-c1067495c5e0
 export class AuthService {
 
   private tokenKey:string = 'customer_manager_token';
