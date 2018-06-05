@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
+import { Observable, of } from 'rxjs';
 
 
 import { CustomerFormComponent } from './customer-form.component';
@@ -9,13 +10,16 @@ import { CustomerService } from './../customer.service';
 
 //https://kirjai.com/testing-angular-services-with-dependencies/
 class CustomerServiceStub {
+  addCustomer(formValue: any) {
 
+  }
 }
 
 describe('CustomerFormComponent', () => {
   let component: CustomerFormComponent;
   let fixture: ComponentFixture<CustomerFormComponent>;
   let el: DebugElement;
+  let customerService: CustomerService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,6 +36,7 @@ describe('CustomerFormComponent', () => {
     fixture = TestBed.createComponent(CustomerFormComponent);
     component = fixture.componentInstance;
     el = fixture.debugElement;
+    customerService = TestBed.get(CustomerService);
     component.ngOnInit()
     fixture.detectChanges();
   });
@@ -72,7 +77,6 @@ describe('CustomerFormComponent', () => {
       tick();
 
     component.formValidity.subscribe((value) => validity = value);
-
       expect(validity).toBe('INVALID');
     }
 
@@ -82,5 +86,24 @@ describe('CustomerFormComponent', () => {
     expect(component.isEditing).toBeFalsy();
   })
 
+  it("should call the add to server api", () => {
+    let formObject = {  address: "test2",
+                        city: "test2",
+                        firstName: "test2",
+                        lastName: "test2",
+                        latitude: 23,
+                        longitude: 23
+                      };
+
+    let responseObject = { ok: true,
+                           status: 200,
+                          statusText: "OK",
+                          type:4
+                        };
+
+    spyOn(customerService, 'addCustomer').and.returnValue( of("some text"));
+    component.submitCustomer();
+    expect(customerService.addCustomer).toHaveBeenCalled();
+  });
 
 });
