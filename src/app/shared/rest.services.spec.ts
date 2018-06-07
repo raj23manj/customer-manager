@@ -40,7 +40,8 @@ describe('Rest Service', () => {
     restService.postRequest(formObject, 'customer.json').subscribe(res => {
       //expect(res).toEqual("-LEMjuprlJJ_e-RF05T3");
     });
-
+    // https://medium.com/netscape/testing-with-the-angular-httpclient-api-648203820712
+    // https://blog.angulartraining.com/how-to-write-unit-tests-for-angular-code-that-uses-the-httpclient-429fa782eb15
     const req = httpMock.expectOne(`${restService.API_URL}customer.json`);
     expect(req.request.method).toBe("POST");
     expect(req.request.url).toBe(`${restService.API_URL}customer.json`);
