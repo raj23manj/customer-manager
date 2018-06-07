@@ -1,6 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+
+import { NgbdModalOptions } from './../../../shared/modal/modal.component';
 import { CustomerService } from './../customer.service';
+
 
 @Component({
   selector: 'app-customer-form',
@@ -12,6 +15,8 @@ export class CustomerFormComponent implements OnInit {
   customerForm: FormGroup;
   @Input() isEditing: boolean = false;
   @Output() formValidity = new EventEmitter<string>();
+  @Input() childModal: NgbdModalOptions;
+
 
   constructor(private customerService: CustomerService) { }
 
@@ -30,6 +35,7 @@ export class CustomerFormComponent implements OnInit {
                         .subscribe(response => {
                           console.log("response:", response);
                           this.customerForm.reset();
+                          this.childModal.manualCloseModal();
                         });
   }
 

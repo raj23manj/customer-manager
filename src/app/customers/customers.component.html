@@ -11,7 +11,7 @@
         <ngbd-modal modalTitle="Create New User" customClass="custom-new-customer-btn">
 
           <div body>
-            <app-customer-form (formValidity)="setToDisable($event)">
+            <app-customer-form (formValidity)="setToDisable($event)" [childModal]=childModal>
             </app-customer-form>
           </div>
 

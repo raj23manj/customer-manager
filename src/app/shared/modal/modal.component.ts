@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation, Input} from '@angular/core';
-
+import * as $ from 'jquery';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -27,6 +27,10 @@ export class NgbdModalOptions {
 
   open(content, size: any) {
     this.modalService.open(content, { size: size });
+  }
+
+  manualCloseModal() {
+    $('.modal-close-btn').click();
   }
 
 }

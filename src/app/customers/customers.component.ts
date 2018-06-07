@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
 
+import { NgbdModalOptions } from './../shared/modal/modal.component';
+
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
@@ -9,6 +11,7 @@ import { CustomerFormComponent } from './customer/customer-form/customer-form.co
 export class CustomersComponent implements OnInit {
 
   @ViewChild(CustomerFormComponent) child: CustomerFormComponent;
+  @ViewChild(NgbdModalOptions) childModal: NgbdModalOptions;
   btnDisable: boolean = true;
 
   constructor() { }
