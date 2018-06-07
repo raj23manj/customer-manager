@@ -87,20 +87,6 @@ describe('CustomerFormComponent', () => {
   })
 
   it("should call the add to server api", () => {
-    let formObject = {  address: "test2",
-                        city: "test2",
-                        firstName: "test2",
-                        lastName: "test2",
-                        latitude: 23,
-                        longitude: 23
-                      };
-
-    let responseObject = { ok: true,
-                           status: 200,
-                          statusText: "OK",
-                          type:4
-                        };
-
     spyOn(customerService, 'addCustomer').and.returnValue( of("some text"));
     component.submitCustomer();
     expect(customerService.addCustomer).toHaveBeenCalled();

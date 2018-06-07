@@ -1,20 +1,20 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from './../auth/auth.service';
+
 
 @Injectable()
 export class RestService {
+  readonly API_URL = 'https://customer-manager-7a910.firebaseio.com/';
 
   constructor(
-                private httpClient: HttpClient,
-                private authService: AuthService
+                private httpClient: HttpClient
               ) {
 
   }
 
   postRequest(payload: any, type: string) {
     const req = new HttpRequest('POST',
-                                'https://customer-manager-7a910.firebaseio.com/' + type,
+                                 this.API_URL + type,
                                 payload,
                                 {
                                   reportProgress: true
