@@ -27,5 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 
+## Prod Build
+ng build --prod --aot
+
 ## important reads
 [viewchildren contentchildren and querylist]https://netbasal.com/understanding-viewchildren-contentchildren-and-querylist-in-angular-896b0c689f6e 
