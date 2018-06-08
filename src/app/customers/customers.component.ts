@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
+import { CustomersService } from './customers.service';
 
 import { NgbdModalOptions } from './../shared/modal/modal.component';
 
@@ -8,15 +10,18 @@ import { NgbdModalOptions } from './../shared/modal/modal.component';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss']
 })
-export class CustomersComponent implements OnInit {
+export class CustomersComponent implements OnInit, OnDestroy {
 
   @ViewChild(CustomerFormComponent) child: CustomerFormComponent;
   @ViewChild(NgbdModalOptions) childModal: NgbdModalOptions;
   btnDisable: boolean = true;
+  private subscriptionCustomers: Subscription;
 
-  constructor() { }
+  constructor(private customersService: CustomersService) { }
 
   ngOnInit() {
+    // fetch all customers intially
+    this.customersService.fetchCustomers();
   }
 
   // https://stackoverflow.com/questions/38974896/call-child-component-method-from-parent-class-angular?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
@@ -30,6 +35,10 @@ export class CustomersComponent implements OnInit {
 
   setToDisable(value: string) {
     this.btnDisable = !(value === "VALID");
+  }
+
+  ngOnDestroy() {
+
   }
 
 }

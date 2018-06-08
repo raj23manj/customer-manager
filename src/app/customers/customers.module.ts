@@ -9,6 +9,7 @@ import { NgbdModalOptions } from './../shared/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
 import { CustomerService } from './customer/customer.service';
+import { CustomersService } from './customers.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { CustomerService } from './customer/customer.service';
     CustomerFormComponent
   ],
   providers: [
-    CustomerService
+    CustomerService,
+    CustomersService
   ]
 })
 export class CustomersModule { }

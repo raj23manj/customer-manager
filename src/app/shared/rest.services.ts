@@ -23,4 +23,9 @@ export class RestService {
     return this.httpClient.request(req);
   }
 
+  getRequest(type: string) {
+    const req = new HttpRequest('GET', this.API_URL + type);
+    return this.httpClient.request(req);
+  }
+
 }
