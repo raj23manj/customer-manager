@@ -15,6 +15,7 @@ export class CustomersService {
     this.restService.getRequest('customer.json', { observe: 'body', responseType: 'json'})
                     .subscribe((customers: any) => {
                       this.customers = customers
+                      console.log(customers);
                       this.customersFetched.next(customers);
                     });
   }
