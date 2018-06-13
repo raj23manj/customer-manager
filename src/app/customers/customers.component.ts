@@ -24,7 +24,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.subscriptionCustomers = this.customersService.customersFetched
                                       .subscribe((customers: any) => {
                                         this.customersList = customers;
-                                        console.log(customers);
                                       });
     // fetch all customers intially
     this.customersService.fetchCustomers();

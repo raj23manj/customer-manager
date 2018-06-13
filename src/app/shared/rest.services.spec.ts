@@ -47,6 +47,19 @@ describe('Rest Service', () => {
     expect(req.request.url).toBe(`${restService.API_URL}customer.json`);
     req.flush(responseObject);
 
+    //httpMock.verify();
+  });
+
+  it('should be a GET request', () => {
+
+    restService.getRequest('customer.json', {}).subscribe(res => {
+    });
+
+    const req = httpMock.expectOne(`${restService.API_URL}customer.json`);
+    expect(req.request.method).toBe("GET");
+    expect(req.request.url).toBe(`${restService.API_URL}customer.json`);
+    req.flush({});
+
     httpMock.verify();
   });
 
