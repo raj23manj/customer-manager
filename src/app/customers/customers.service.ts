@@ -12,7 +12,7 @@ export class CustomersService {
   }
 
   fetchCustomers() {
-    this.restService.getRequest('customer.json')
+    this.restService.getRequest('customer.json', { observe: 'body', responseType: 'json'})
                     .subscribe((customers: any) => {
                       this.customers = customers
                       this.customersFetched.next(customers);

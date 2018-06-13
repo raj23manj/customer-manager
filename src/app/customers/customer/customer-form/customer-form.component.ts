@@ -30,7 +30,6 @@ export class CustomerFormComponent implements OnInit {
   }
 
   submitCustomer() {
-    console.log(this.customerForm.value)
     this.customerService.addCustomer(this.customerForm.value)
                         .subscribe(response => {
                           console.log("response:", response);

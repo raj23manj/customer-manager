@@ -16,10 +16,16 @@ export class CustomersComponent implements OnInit, OnDestroy {
   @ViewChild(NgbdModalOptions) childModal: NgbdModalOptions;
   btnDisable: boolean = true;
   private subscriptionCustomers: Subscription;
+  customersList: any = [];
 
   constructor(private customersService: CustomersService) { }
 
   ngOnInit() {
+    this.subscriptionCustomers = this.customersService.customersFetched
+                                      .subscribe((customers: any) => {
+                                        this.customersList = customers;
+                                        console.log(customers);
+                                      });
     // fetch all customers intially
     this.customersService.fetchCustomers();
   }
@@ -38,7 +44,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
+    this.subscriptionCustomers.unsubscribe();
   }
 
 }
