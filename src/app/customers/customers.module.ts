@@ -10,6 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
 import { CustomerService } from './customer/customer.service';
 import { CustomersService } from './customers.service';
+import { CardViewComponent } from './customer/card-view/card-view.component';
+import { ListViewComponent } from './customer/list-view/list-view.component';
+import { MapViewComponent } from './customer/map-view/map-view.component';
 
 @NgModule({
   imports: [
@@ -22,7 +25,10 @@ import { CustomersService } from './customers.service';
     CustomersComponent,
     CustomerComponent,
     NgbdModalOptions,
-    CustomerFormComponent
+    CustomerFormComponent,
+    CardViewComponent,
+    ListViewComponent,
+    MapViewComponent
   ],
   providers: [
     CustomerService,
