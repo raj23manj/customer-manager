@@ -1,7 +1,14 @@
-<div class="row col-md-4">
-  <div class="card-header">
-    <a href="#" class="white">
+<div class="row col-md-3 float-left card-view-individual">
+  <div class="card-header col-12">
+    <a href="#" class="col-10">
       {{customer.firstName | titlecase}} {{ customer.lastName | titlecase}}
     </a>
+    <span class="col-2 float-right">
+      <i class="fa fa-edit"></i>
+    </span>
+  </div>
+
+  <div class="col-12">
+    View Orders
   </div>
 </div>
