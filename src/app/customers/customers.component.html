@@ -41,7 +41,10 @@
       <ng-template ngbTabTitle><i class="fa fa-th-large"></i> Card View</ng-template>
       <ng-template ngbTabContent>
         <div class="container card-view-customers">
-          <app-card-view *ngFor="let customer of customersList" [customer]=customer>
+          <app-card-view *ngFor="let customer of customersList;  let i = index"
+                         [customer]=customer
+                         [index] = i
+                         [custIds]=customersListIds>
           </app-card-view>
         </div>
       </ng-template>

@@ -8,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardViewComponent implements OnInit {
 
   @Input() customer: any;
+  @Input() index: number;
+  @Input() custIds: any[];
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
