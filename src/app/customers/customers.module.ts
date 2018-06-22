@@ -13,6 +13,10 @@ import { CustomersService } from './customers.service';
 import { CardViewComponent } from './customer/card-view/card-view.component';
 import { ListViewComponent } from './customer/list-view/list-view.component';
 import { MapViewComponent } from './customer/map-view/map-view.component';
+import { EditComponent } from './customer/edit/edit.component';
+import { DetailsComponent } from './customer/edit/details/details.component';
+import { OrdersComponent } from './customer/edit/orders/orders.component';
+import { ViewComponent } from './customer/edit/view/view.component';
 
 @NgModule({
   imports: [
@@ -28,7 +32,11 @@ import { MapViewComponent } from './customer/map-view/map-view.component';
     CustomerFormComponent,
     CardViewComponent,
     ListViewComponent,
-    MapViewComponent
+    MapViewComponent,
+    EditComponent,
+    DetailsComponent,
+    OrdersComponent,
+    ViewComponent
   ],
   providers: [
     CustomerService,
